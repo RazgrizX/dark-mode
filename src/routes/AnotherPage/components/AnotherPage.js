@@ -1,32 +1,22 @@
-import React from 'react';
+import { faMountain } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun, faAddressBook } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 import '../styles/_app.scss';
 
-function App(props) {
-  const {darkModeEnabled, setRoute, setDarkModeEnabled} = props
-
+function AnotherPage(props) {
+  const {setRoute} = props
 
   return (
-    <div className="app">
+    <div className="another-app">
       <div className="level">
         <div>
-          <h1 className="title">Dark Mode Challenge</h1>
+          <h1 className="title">Another Route Challenge</h1>
         </div>
-
-        <button className="app__dark-mode-btn icon level-right" onClick={() => {
-         setRoute(["another-page"])
-        }}>
-          <FontAwesomeIcon icon={faAddressBook} color={darkModeEnabled ?"#FFA500":"#000000"} />
-        </button>
-
-        {/* --The button that should toggle dark mode-- */}
-        <button className="app__dark-mode-btn icon level-right" onClick={() => {
-          setDarkModeEnabled(!darkModeEnabled)
-        }}>
-          <FontAwesomeIcon icon={darkModeEnabled ? faSun: faMoon} color={darkModeEnabled ?"#FFA500":"#000000"} />
-        </button>
-
+          <button className="app__dark-mode-btn icon level-right" onClick={() => {
+          setRoute(["app"])
+          }}>
+            <FontAwesomeIcon icon={faMountain} color={"#FFA500"} />
+          </button>
       </div>
 
       <div className="columns">
@@ -60,4 +50,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default AnotherPage;

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun, faAddressBook } from '@fortawesome/free-solid-svg-icons';
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import '../styles/_app.scss';
+import { useLocalBooleanState } from '../../../hooks/useDarkMode';
 
-function App(props) {
-  const {darkModeEnabled, setRoute, setDarkModeEnabled} = props
+function App() {
+  const [darkModeEnabled, setDarkModeEnabled] = useLocalBooleanState("dark-mode-enabled", false)
 
+  useEffect(()=>{
+    if(darkModeEnabled){
+      document.documentElement.classList.add("dark-mode")
+    } else{
+      document.documentElement.classList.remove("dark-mode")
+    }
+  }, [darkModeEnabled])
 
   return (
     <div className="app">
@@ -13,12 +21,6 @@ function App(props) {
         <div>
           <h1 className="title">Dark Mode Challenge</h1>
         </div>
-
-        <button className="app__dark-mode-btn icon level-right" onClick={() => {
-         setRoute(["another-page"])
-        }}>
-          <FontAwesomeIcon icon={faAddressBook} color={darkModeEnabled ?"#FFA500":"#000000"} />
-        </button>
 
         {/* --The button that should toggle dark mode-- */}
         <button className="app__dark-mode-btn icon level-right" onClick={() => {

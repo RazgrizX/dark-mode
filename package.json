@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "webpack",
+    "prettier": "prettier --write  ./src/*"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,6 +42,7 @@
     "@webpack-cli/serve": "^1.6.1",
     "babel-loader": "^8.2.3",
     "html-webpack-plugin": "^4.5.0",
+    "prettier": "^1.19.1",
     "sass": "^1.49.7",
     "sass-loader": "^10.0.0",
     "webpack": "^4.44.2",
