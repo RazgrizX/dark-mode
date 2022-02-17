@@ -13,6 +13,7 @@
 # Goals / Outcomes ✨
 
 - Using state and global state
+  - Global state example in the `global-state` branch, can also be found in 1st PR
 - DOM manipulation
 
 &nbsp;
