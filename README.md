@@ -4,7 +4,7 @@
 
 # How to launch an app
 
-- use Node 14 `nvm install 14.19`
+- use Node 14 `nvm install 14.19.0`
 - install dependencies `npm install`
 - run the app `npm start`
 
