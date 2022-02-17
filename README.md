@@ -26,10 +26,10 @@ None
 # Requirements 📖
 
 - Add dark-mode switching functionality to the _existing_ dark-mode button
-  - [x] Utilise the _existing_ dark-mode scss file by adding a `dark-mode` class to the root `html` element (check)
+  - ✅ Utilise the _existing_ dark-mode scss file by adding a `dark-mode` class to the root `html` element (check)
 - When in Dark mode:
-  - [x] The button icon should be `faSun` (check)
-  - [x] The button icon colour should be `(#FFA500)`. You can use the `color` prop on the `Icon` component. (check)
+  - ✅ The button icon should be `faSun` (check)
+  - ✅ The button icon colour should be `(#FFA500)`. You can use the `color` prop on the `Icon` component. (check)
 
 &nbsp;
 
