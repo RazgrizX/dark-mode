@@ -1,10 +1,12 @@
-import { faMountain } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import '../styles/_app.scss';
+import { faMountain } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext } from "react";
+import { GlobalDispatchContext, GlobalStateContext } from "../../../globalState";
+import "../styles/_app.scss";
 
-function AnotherPage(props) {
-  const {setRoute} = props
+function AnotherPage() {
+  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext);
 
   return (
     <div className="another-app">
@@ -12,19 +14,36 @@ function AnotherPage(props) {
         <div>
           <h1 className="title">Another Route Challenge</h1>
         </div>
-          <button className="app__dark-mode-btn icon level-right" onClick={() => {
-          setRoute(["app"])
-          }}>
-            <FontAwesomeIcon icon={faMountain} color={"#FFA500"} />
-          </button>
+        <button
+          className="app__dark-mode-btn icon level-right"
+          onClick={() => {
+            dispatch({ type: SET_ROUTE, payload: ["app"] });
+          }}
+        >
+          <FontAwesomeIcon
+            icon={faMountain}
+            color={globalState.darkModeEnabled ? "#FFA500" : "#000000"}
+          />
+        </button>
       </div>
 
       <div className="columns">
         <div className="column">
-          <p>Lollipop powder powder. Cotton candy caramels chupa chups halvah muffin caramels apple pie topping cake. Topping chocolate bar pastry chocolate cake. Cupcake tart jujubes dragée jelly-o icing sugar plum. Chocolate bar lollipop candy canes. Biscuit croissant apple pie pudding caramels wafer tart tootsie roll macaroon. Croissant tiramisu chocolate bar carrot cake lemon drops halvah.</p>
+          <p>
+            Lollipop powder powder. Cotton candy caramels chupa chups halvah muffin caramels apple
+            pie topping cake. Topping chocolate bar pastry chocolate cake. Cupcake tart jujubes
+            dragée jelly-o icing sugar plum. Chocolate bar lollipop candy canes. Biscuit croissant
+            apple pie pudding caramels wafer tart tootsie roll macaroon. Croissant tiramisu
+            chocolate bar carrot cake lemon drops halvah.
+          </p>
         </div>
         <div className="column">
-          <p>Marshmallow tiramisu liquorice bear claw chocolate bar bear claw tart. Muffin chupa chups pie. Brownie apple pie topping lemon drops marzipan toffee. Pudding macaroon icing ice cream bonbon cake tart. Pudding sugar plum chocolate cake cake biscuit pastry pastry chocolate bar tart. Lemon drops dessert gummies icing.</p>
+          <p>
+            Marshmallow tiramisu liquorice bear claw chocolate bar bear claw tart. Muffin chupa
+            chups pie. Brownie apple pie topping lemon drops marzipan toffee. Pudding macaroon icing
+            ice cream bonbon cake tart. Pudding sugar plum chocolate cake cake biscuit pastry pastry
+            chocolate bar tart. Lemon drops dessert gummies icing.
+          </p>
         </div>
       </div>
 
