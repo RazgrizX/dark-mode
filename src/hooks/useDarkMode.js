@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const DARK_MODE_LS_KEY = "dark-mode-enabled";
+
 export function useDarkMode() {
   const cachedValue = localStorage.getItem(DARK_MODE_LS_KEY) === "true" ? true : false;
   const initialValue = cachedValue ? cachedValue : false;

@@ -1,10 +1,12 @@
 import { faMountain } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalDispatchContext, GlobalStateContext } from "../../../globalState";
 import "../styles/_app.scss";
 
-function AnotherPage(props) {
-  const { setRoute } = props;
+function AnotherPage() {
+  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext);
 
   return (
     <div className="another-app">
@@ -15,10 +17,13 @@ function AnotherPage(props) {
         <button
           className="app__dark-mode-btn icon level-right"
           onClick={() => {
-            setRoute(["app"]);
+            dispatch({ type: SET_ROUTE, payload: ["app"] });
           }}
         >
-          <FontAwesomeIcon icon={faMountain} color={"#FFA500"} />
+          <FontAwesomeIcon
+            icon={faMountain}
+            color={globalState.darkModeEnabled ? "#FFA500" : "#000000"}
+          />
         </button>
       </div>
 

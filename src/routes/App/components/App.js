@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import "../styles/_app.scss";
+import {
+  GlobalDispatchContext,
+  GlobalStateContext,
+  SET_DARK_MODE,
+  SET_ROUTE,
+} from "../../../globalState";
 
-function App(props) {
-  const { darkModeEnabled, setRoute, setDarkModeEnabled } = props;
+function App() {
+  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext);
 
   return (
     <div className="app">
@@ -16,22 +23,25 @@ function App(props) {
         <button
           className="app__dark-mode-btn icon level-right"
           onClick={() => {
-            setRoute(["another-page"]);
+            dispatch({ type: SET_ROUTE, payload: ["another-page"] });
           }}
         >
-          <FontAwesomeIcon icon={faAddressBook} color={darkModeEnabled ? "#FFA500" : "#000000"} />
+          <FontAwesomeIcon
+            icon={faAddressBook}
+            color={globalState.darkModeEnabled ? "#FFA500" : "#000000"}
+          />
         </button>
 
         {/* --The button that should toggle dark mode-- */}
         <button
           className="app__dark-mode-btn icon level-right"
           onClick={() => {
-            setDarkModeEnabled(!darkModeEnabled);
+            dispatch({ type: SET_DARK_MODE, payload: !globalState.darkModeEnabled });
           }}
         >
           <FontAwesomeIcon
-            icon={darkModeEnabled ? faSun : faMoon}
-            color={darkModeEnabled ? "#FFA500" : "#000000"}
+            icon={globalState.darkModeEnabled ? faSun : faMoon}
+            color={globalState.darkModeEnabled ? "#FFA500" : "#000000"}
           />
         </button>
       </div>

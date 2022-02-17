@@ -1,30 +1,22 @@
 import Home from "./App";
 import AnotherPage from "./AnotherPage";
-import React, { useState } from "react";
-import { useDarkMode } from "../hooks/useDarkMode";
+import React, { useContext } from "react";
+import { GlobalDispatchContext, GlobalStateContext, SET_ROUTE } from "../globalState";
 
 // Use something like react-router-dom to manage multiple pages/routes
 // Here is a simples alternative, route can come from state
 
 function Router() {
-  const [route, setRoute] = useState(["app"]);
-  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode();
+  const globalState = useContext(GlobalStateContext);
+  const dispatch = useContext(GlobalDispatchContext);
 
-  if (route[0] === "app") {
-    return (
-      <Home
-        darkModeEnabled={darkModeEnabled}
-        setRoute={newRoute => setRoute(newRoute)}
-        setDarkModeEnabled={mode => {
-          setDarkModeEnabled(mode);
-        }}
-      />
-    );
-  } else if (route[0] === "another-page") {
-    return <AnotherPage setRoute={setRoute} />;
+  if (globalState.route[0] === "app") {
+    return <Home />;
+  } else if (globalState.route[0] === "another-page") {
+    return <AnotherPage />;
   } else {
     console.error("No such page found");
-    setRoute["app"];
+    dispatch({ type: SET_ROUTE, payload: ["app"] });
     return null;
   }
 }
