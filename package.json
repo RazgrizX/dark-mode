@@ -16,10 +16,8 @@
     "react-scripts": "^4.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +33,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@webpack-cli/serve": "^1.6.1",
+    "babel-loader": "^8.2.3",
+    "html-webpack-plugin": "^4.5.0",
+    "sass": "^1.49.7",
+    "sass-loader": "^10.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.3.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
