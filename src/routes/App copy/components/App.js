@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import '../styles/_app.scss';
-import { useLocalBooleanState } from '../../../hooks/useDarkMode';
+import React, { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import "../styles/_app.scss";
+import { useLocalBooleanState } from "../../../hooks/useDarkMode";
 
 function App() {
-  const [darkModeEnabled, setDarkModeEnabled] = useLocalBooleanState("dark-mode-enabled", false)
+  const [darkModeEnabled, setDarkModeEnabled] = useLocalBooleanState("dark-mode-enabled", false);
 
-  useEffect(()=>{
-    if(darkModeEnabled){
-      document.documentElement.classList.add("dark-mode")
-    } else{
-      document.documentElement.classList.remove("dark-mode")
+  useEffect(() => {
+    if (darkModeEnabled) {
+      document.documentElement.classList.add("dark-mode");
+    } else {
+      document.documentElement.classList.remove("dark-mode");
     }
-  }, [darkModeEnabled])
+  }, [darkModeEnabled]);
 
   return (
     <div className="app">
@@ -23,20 +23,36 @@ function App() {
         </div>
 
         {/* --The button that should toggle dark mode-- */}
-        <button className="app__dark-mode-btn icon level-right" onClick={() => {
-          setDarkModeEnabled(!darkModeEnabled)
-        }}>
-          <FontAwesomeIcon icon={darkModeEnabled ? faSun: faMoon} color={darkModeEnabled ?"#FFA500":"#000000"} />
+        <button
+          className="app__dark-mode-btn icon level-right"
+          onClick={() => {
+            setDarkModeEnabled(!darkModeEnabled);
+          }}
+        >
+          <FontAwesomeIcon
+            icon={darkModeEnabled ? faSun : faMoon}
+            color={darkModeEnabled ? "#FFA500" : "#000000"}
+          />
         </button>
-
       </div>
 
       <div className="columns">
         <div className="column">
-          <p>Lollipop powder powder. Cotton candy caramels chupa chups halvah muffin caramels apple pie topping cake. Topping chocolate bar pastry chocolate cake. Cupcake tart jujubes dragée jelly-o icing sugar plum. Chocolate bar lollipop candy canes. Biscuit croissant apple pie pudding caramels wafer tart tootsie roll macaroon. Croissant tiramisu chocolate bar carrot cake lemon drops halvah.</p>
+          <p>
+            Lollipop powder powder. Cotton candy caramels chupa chups halvah muffin caramels apple
+            pie topping cake. Topping chocolate bar pastry chocolate cake. Cupcake tart jujubes
+            dragée jelly-o icing sugar plum. Chocolate bar lollipop candy canes. Biscuit croissant
+            apple pie pudding caramels wafer tart tootsie roll macaroon. Croissant tiramisu
+            chocolate bar carrot cake lemon drops halvah.
+          </p>
         </div>
         <div className="column">
-          <p>Marshmallow tiramisu liquorice bear claw chocolate bar bear claw tart. Muffin chupa chups pie. Brownie apple pie topping lemon drops marzipan toffee. Pudding macaroon icing ice cream bonbon cake tart. Pudding sugar plum chocolate cake cake biscuit pastry pastry chocolate bar tart. Lemon drops dessert gummies icing.</p>
+          <p>
+            Marshmallow tiramisu liquorice bear claw chocolate bar bear claw tart. Muffin chupa
+            chups pie. Brownie apple pie topping lemon drops marzipan toffee. Pudding macaroon icing
+            ice cream bonbon cake tart. Pudding sugar plum chocolate cake cake biscuit pastry pastry
+            chocolate bar tart. Lemon drops dessert gummies icing.
+          </p>
         </div>
       </div>
 
